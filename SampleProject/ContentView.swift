@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var str = "Hello, Swift UI"
     
     var body: some View {
-        VStack() {
+        VStack(spacing: 30) {//各ブロックのスペースを統一。
             Rectangle()
                 .foregroundColor(.gray)
                 .frame(width: 300, height: 100, alignment: .leading)
