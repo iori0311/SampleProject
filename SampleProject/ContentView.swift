@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var taxViewModel = TaxViewModel()
+    @State private var taxViewModel = TaxViewModel()
     
     var body: some View {
-        VStack(spacing: 15) {
-            TextField("ここに文字を入力", text: $taxViewModel.inputText)
-            Button("計算"){
-                taxViewModel.calculateTax()
-            }
-            Text("価格: \(taxViewModel.inputText)")
-            Text("消費税8%: \(taxViewModel.tax_8)")
-            Text("消費税10%: \(taxViewModel.tax_10)")
+        VStack() {
+            TaxView(taxViewModel: $taxViewModel)
         }
         .padding()
     }
