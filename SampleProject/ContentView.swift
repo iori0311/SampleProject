@@ -11,32 +11,31 @@ struct ContentView: View {
     @State var str = "Hello, Swift UI"
     
     var body: some View {
-        VStack {
+        VStack() {
             Rectangle()
                 .foregroundColor(.gray)
-                .frame(width: 300, height: 100)
+                .frame(width: 300, height: 100, alignment: .leading)
             Rectangle()
                 .foregroundColor(.purple)
-                .frame(width: 300, height: 100)
-            HStack{
+                .frame(width: 300, height: 100, alignment: .leading)
+            HStack(spacing: 30){//spacingで等間隔に。{300-(100+80+60)}/2
                 Rectangle()
                     .foregroundColor(.blue)
                     .frame(width: 100, height: 100)
-                    .padding()
                 Rectangle()
                     .foregroundColor(.red)
-                    .frame(width: 50, height: 50)
-                    .padding()
+                    .frame(width: 80, height: 80)
                 Rectangle()
                     .foregroundColor(.yellow)
-                    .frame(width: 25, height: 25)
-                    .padding()
+                    .frame(width: 60, height: 60)
             }
+            .frame(width: 300, alignment: .leading)//HStackの全体の幅の設定し左揃えに。
             ZStack{
                 Rectangle()
                     .foregroundColor(.green)
                     .frame(width: 300, height: 200)
-                VStack{
+                VStack(spacing: 0){
+                    Spacer()//上のスペース
                     HStack{
                         Rectangle()
                             .foregroundColor(.red)
@@ -45,7 +44,7 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .frame(width: 130, height: 60)
                     }
-                    .padding()
+                    Spacer()//中央のスペース
                     HStack{
                         Rectangle()
                             .foregroundColor(.black)
@@ -54,8 +53,9 @@ struct ContentView: View {
                             .foregroundColor(.yellow)
                             .frame(width: 130, height: 60)
                     }
-                    .padding()
+                    Spacer()//下のスペース
                 }
+                .frame(height: 200)//VStackの高さをZStackの高さに合わせる
             }
 
         }
