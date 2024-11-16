@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TaxView: View {
-    @Binding var taxViewModel: TaxViewModel
+    //@Environment(TaxViewModel.self) private var taxViewModel:TaxViewModel
+    @Bindable var taxViewModel:TaxViewModel
     
     var body: some View {
         VStack(spacing: 15) {
@@ -25,6 +26,5 @@ struct TaxView: View {
 }
 
 #Preview {
-    @State var previewViewModel = TaxViewModel()
-    return TaxView(taxViewModel: $previewViewModel)
+    TaxView(taxViewModel: TaxViewModel())
 }

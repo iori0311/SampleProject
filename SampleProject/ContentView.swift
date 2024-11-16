@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var taxViewModel = TaxViewModel()
-    
+    @State var taxViewModel = TaxViewModel()
     var body: some View {
         VStack() {
-            TaxView(taxViewModel: $taxViewModel)
+            TaxView(taxViewModel: TaxViewModel())
         }
+        .environment(taxViewModel)
         .padding()
     }
 }
